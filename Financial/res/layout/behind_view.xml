@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="307dp"
+        android:layout_height="fill_parent"
+        android:background="@android:color/black" >
+
+        <LinearLayout
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/texthome"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_group_bg"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="2dp"
+                android:text="ホーム"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textfeed"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="フィード"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textLecture"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_group_bg"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="2dp"
+                android:text="開催講座"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textMoneyLecture"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="お金の教養講座"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textSchool"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="スクール"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textSeminar"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="セミナー"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textCommunication"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="通信講座"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textMyPage"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_group_bg"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="2dp"
+                android:text="マイページ"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textVip"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="正規受講生メニュー"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textSet"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_group_bg"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="2dp"
+                android:text="設定"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textNews"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="お知らせ"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textSetting"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="設定"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textHelp"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="ヘルプ"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textFriends"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="友達に紹介"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textReview"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="レビュー掲載"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textSite"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="関連サイト"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textQuestion"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/desktop_list_item_bg"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="お問い合わせ"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
