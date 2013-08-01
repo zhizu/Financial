@@ -14,9 +14,9 @@
        <ImageView 
         android:id="@+id/content_img"
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/title"
+        android:background="@drawable/title_1"
         /> 
         <TextView 
             android:id="@+id/content_title"
@@ -24,23 +24,22 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:layout_marginLeft="10dp"
-            android:text="qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"
+            android:text="イケてる若手起業家と一緒にベンチャー企業を成功へと導く"
             />
         <TextView 
             android:id="@+id/content_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="qqqqqqqqqqqqqqqqqqqqqqqqqqq"
+            android:text="インターネット産業のアナリストとして勤務した後、ベンチャービジネスの世界に飛び込み、カブドットコム証券をはじめ数多くのITベンチャーの創業に携わってきた磯崎哲也さん。"
             />
-        <TextView 
+        <ImageView 
             android:id="@+id/content_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="17sp"
-            android:layout_marginLeft="280dp"
-            android:text="シェア"
+            android:layout_width="103dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="220dp"
+            android:src="@drawable/share"
             />
     </LinearLayout>
     

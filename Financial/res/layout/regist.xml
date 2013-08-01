@@ -20,7 +20,7 @@
             android:layout_centerInParent="true"
             android:text="用户登录"
             android:textColor="#ffffff"
-            android:textSize="18sp" />
+            android:textSize="18sp" />
         -->
 
         <ImageButton
@@ -49,6 +49,25 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/title_logo" />
 
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="ほげさん"
+            android:textColor="#b22222"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/moneyText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="yang.asahi@gmail.com"
+            android:textSize="15sp" />
+
         <EditText
             android:id="@+id/login_user_edit"
             android:layout_width="250dp"
@@ -57,7 +76,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/login_editbox"
-            android:hint="メールアドレス"
+            android:hint="新しいメールアドレス"
             android:singleLine="true"
             android:textColor="#000"
             android:textSize="15sp" />
@@ -71,32 +90,25 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/login_editbox"
-            android:hint="パスワード"
+            android:hint="新しいパスワード"
             android:password="true"
             android:singleLine="true"
             android:textColor="#000"
             android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/login_btn"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/btn_1"
-            android:text="ログイン"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/forget_passwd"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/new_passwd_edit"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
-            android:background="#0000"
-            android:text="パスワードをお忘れですか？"
-            android:textColor="#999999"
-            android:textSize="14sp" />
+            android:layout_marginRight="20dp"
+            android:background="@drawable/login_editbox"
+            android:hint="新しいパスワード確認"
+            android:password="true"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="15sp" />
 
         <View
             android:layout_width="fill_parent"
@@ -112,7 +124,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp"
             android:background="@drawable/btn_2"
-            android:text="正規受講生登録"
+            android:text="変更する"
             android:textColor="#ffffff"
             android:textSize="18sp" />
     </LinearLayout>

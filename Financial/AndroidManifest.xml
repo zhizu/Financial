@@ -33,6 +33,37 @@
             android:label="@string/title_activity_main" >
             
         </activity>
+        <activity
+            android:name=".UserActivity"
+            android:label="@string/title_activity_main" >
+            
+        </activity>
+         <activity
+            android:name=".RegistActivity"
+            android:label="@string/title_activity_main" >
+            
+        </activity>
+        <activity
+            android:name=".PassActivity"
+            android:label="@string/title_activity_main" >
+            
+        </activity>
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/title_activity_main" >
+            
+        </activity>
+        <activity
+            android:name=".AnimActivity"
+            android:label="@string/title_activity_main" >
+            
+        </activity>
+        <activity
+            android:name=".CardActivity"
+            android:label="@string/title_activity_main" >
+            
+        </activity>
+              
     </application>
 
 </manifest>
