@@ -3,11 +3,16 @@ package com.accum.financial;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.ListActivity;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -15,23 +20,31 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.accum.adapter.NewsItemAdapter;
 import com.accum.modal.NewsItem;
+import com.accum.util.FaRestClient;
+import com.accum.util.JsonUtils;
+import com.accum.xListView.XListView;
+import com.accum.xListView.XListView.IXListViewListener;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends Activity implements IXListViewListener{
 
 	private TextView textCommunication,textMoneyLecture,textSchool,textSeminar,textfeed,textVip = null;
 	private SlidingMenu menu = null;
 	private ImageView menuButton = null;
-	private ListView listView = null;
+	private XListView listView = null;
 	private List<NewsItem> myListNewsItem;
 	private NewsItemAdapter adapter = null;
 	private LinearLayout linearfeed = null;
 	private NewsItem currentItem = null;
+	private Handler mHandler = null;
+	private int start = 0;
+	private static int refreshCnt = 0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +61,14 @@ public class MainActivity extends ListActivity {
         infos.add(item2);
         infos.add(item3);
         adapter = new NewsItemAdapter(infos, MainActivity.this);
-        listView = getListView();
+        listView = (XListView)findViewById(R.id.xListView);
         listView.setCacheColorHint(Color.TRANSPARENT);
         listView.setDividerHeight(0);
+        listView.setPullLoadEnable(true);
+        listView.setPullRefreshEnable(true);
         listView.setAdapter(adapter);
+        listView.setXListViewListener(this);
+        mHandler = new Handler();
         
         listView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -157,6 +174,27 @@ public class MainActivity extends ListActivity {
 				// TODO Auto-generated method stub
 				menu.toggle();
 				linearfeed.setVisibility(View.VISIBLE);
+			
+//				AsyncHttpClient client = new AsyncHttpClient();
+//				 client.get(MainActivity.this, "https://www.f-academy.jp/sp/app/api/feed_json.cgi", new JsonHttpResponseHandler(){
+//
+//
+//					@Override
+//					public void onSuccess(JSONObject jsonObject) {
+//						// TODO Auto-generated method stub
+//						try {
+//							JSONArray array = jsonObject.getJSONArray("feed_data");
+//							 JsonUtils jsonUtiles = new JsonUtils();
+//							 jsonUtiles.parseItemFromJson(array.toString());
+//						} catch (JSONException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//						
+//						super.onSuccess(jsonObject);
+//					}
+//					 
+//				 });
 			}
 		});
         
@@ -178,4 +216,40 @@ public class MainActivity extends ListActivity {
     public void LinearInit(){
     	 linearfeed = (LinearLayout)findViewById(R.id.linearfeed);
     }
+
+	@Override
+	public void onRefresh() {
+		// TODO Auto-generated method stub
+		mHandler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				start = ++refreshCnt;
+//				items.clear();
+//				geneItems();
+				// mAdapter.notifyDataSetChanged();
+//				mAdapter = new ArrayAdapter<String>(XListViewActivity.this, R.layout.list_item, items);
+//				mListView.setAdapter(mAdapter);
+				listView.stopRefresh();
+				listView.stopLoadMore();
+				listView.setRefreshTime("먼먼");
+			}
+		}, 2000);
+	}
+
+	@Override
+	public void onLoadMore() {
+		// TODO Auto-generated method stub
+		mHandler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+//				geneItems();
+//				mAdapter.notifyDataSetChanged();
+//				onLoad();
+				listView.stopRefresh();
+				listView.stopLoadMore();
+				listView.setRefreshTime("먼먼");
+			}
+		}, 2000);
+	}
+
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.ListActivity;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;

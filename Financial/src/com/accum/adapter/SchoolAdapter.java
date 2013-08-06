@@ -5,13 +5,17 @@ import java.util.List;
 import java.util.Map;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 
 import com.accum.financial.R;
 import com.accum.modal.School;
+import com.yx.mymap.MapActivity;
 
 public class SchoolAdapter extends BaseAdapter{
 	private List<School>info = null;
@@ -48,6 +52,17 @@ public class SchoolAdapter extends BaseAdapter{
 		if(rowView == null){
 			LayoutInflater layoutInflater = LayoutInflater.from(context);
 			rowView = layoutInflater.inflate(R.layout.school, null);
+			Button button = (Button)rowView.findViewById(R.id.keiroButton);
+			button.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent = new Intent();
+					intent.setClass(context, MapActivity.class);
+					context.startActivity(intent);
+				}
+			});
 			rowViews.put(position, rowView);
 		}
 		return rowView;

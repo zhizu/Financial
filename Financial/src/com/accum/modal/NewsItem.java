@@ -15,6 +15,11 @@ public class NewsItem implements Serializable{
 	private String content_grp_id;
 	private String content_date;
 	private String news_type;
+	
+	public NewsItem(){
+		
+	}
+	
 	public String getContent_id() {
 		return content_id;
 	}
