@@ -145,7 +145,7 @@
                 android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
-                android:text="お知らせ"
+                android:text="お知らせ                                    3"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 

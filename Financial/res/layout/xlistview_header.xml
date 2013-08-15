@@ -28,9 +28,10 @@
                 android:layout_marginTop="3dp" >
 
                 <TextView
+                    android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="上次更新时间：2013/8/2 17:00"
+                    android:text="最終更新日時：2013/8/2 17:00"
                     android:textSize="12sp" />
 
                 <TextView

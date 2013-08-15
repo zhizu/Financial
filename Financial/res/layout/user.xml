@@ -12,16 +12,7 @@
         android:background="@drawable/v5_0_1_flipper_head_blue_background"
         android:gravity="center_vertical" >
 
-        <!--
-             <TextView
-            android:id="@+id/locateText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="用户登录"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-        -->
+     
 
         <ImageButton
             android:id="@+id/img_search"
@@ -35,8 +26,6 @@
     </RelativeLayout>
 
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scrollbarStyle="outsideOverlay" >
@@ -100,7 +89,7 @@
                         android:id="@+id/monText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="50dp"
+                        android:layout_marginLeft="35dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
                         android:text="4000pt(4000円分)"
@@ -121,17 +110,13 @@
                         android:text="現在194単位取得"
                         android:textSize="15sp" />
 
-                    <Button
-                        android:id="@+id/logout_btn"
+                    <ImageView
+                        android:id="@+id/point"
                         android:layout_width="100dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="66dp"
                         android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/btn_1"
-                        android:text="プラチナ"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"/>
                 </LinearLayout>
 
                 <LinearLayout
