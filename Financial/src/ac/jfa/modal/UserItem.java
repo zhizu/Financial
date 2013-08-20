@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class UserItem implements Serializable{
 
 	private static final long serialVersionUID = 2884473795377859805L;
+	private String dl_sid;
 	private String sid;
 	private String ko_tani;
 	private String ko_point;
@@ -54,5 +55,10 @@ public class UserItem implements Serializable{
 	public void setKo_name2(String ko_name2) {
 		this.ko_name2 = ko_name2;
 	}
-	
+	public String getDl_sid() {
+		return dl_sid;
+	}
+	public void setDl_sid(String dl_sid) {
+		this.dl_sid = dl_sid;
+	}
 }

@@ -1,27 +1,30 @@
 package ac.jfa;
 
+import java.io.Serializable;
 import java.util.List;
 
-import org.apache.commons.lang.RandomStringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import ac.jfa.adapter.NewsItemAdapter;
 import ac.jfa.modal.NewsItem;
+import ac.jfa.modal.NoticeItem;
 import ac.jfa.util.JsonUtils;
-import ac.jfa.util.Manager;
 import ac.jfa.xListView.XListView;
 import ac.jfa.xListView.XListView.IXListViewListener;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.telephony.TelephonyManager;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -48,6 +51,9 @@ public class MainActivity extends Activity implements IXListViewListener {
 	private NewsItem currentItem = null;
 	private Handler mHandler = null;
 	private int start = 1;
+	private SQLiteDatabase db = null;
+
+	private List<NoticeItem> noticeItems;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -216,6 +222,8 @@ public class MainActivity extends Activity implements IXListViewListener {
 		});
 		
 		textNews = (TextView)findViewById(R.id.textNews);
+		getNotices();
+		
 		textNews.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -223,6 +231,7 @@ public class MainActivity extends Activity implements IXListViewListener {
 				// TODO Auto-generated method stub
 				menu.toggle();
 				Intent intent = new Intent();
+				intent.putExtra("noticeItems", (Serializable)noticeItems);
 				intent.setClass(MainActivity.this, NoticeActivity.class);
 				MainActivity.this.startActivity(intent);
 				overridePendingTransition(R.anim.in_from_right, R.anim.out);
@@ -263,13 +272,9 @@ public class MainActivity extends Activity implements IXListViewListener {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent();
-				intent.setClass(MainActivity.this, KouzaActivity.class);
-				intent.putExtra("url",
-						"https://play.google.com/store/apps/details?id=com.bookeep");
-
-				menu.toggle();
+				intent.setData(Uri.parse("market://details?id=com.bookeep"));
+				intent.setAction(Intent.ACTION_VIEW);
 				MainActivity.this.startActivity(intent);
-				overridePendingTransition(R.anim.in_from_right, R.anim.out);
 			}
 		});
 		
@@ -359,5 +364,52 @@ public class MainActivity extends Activity implements IXListViewListener {
 					}
 
 				});
+	}
+	
+	private void getNotices() {
+		AsyncHttpClient client = new AsyncHttpClient();
+		client.get(MainActivity.this,
+				"https://www.f-academy.jp/sp/app/api/news_json.cgi",
+				new JsonHttpResponseHandler() {
+
+					@Override
+					public void onSuccess(JSONObject jsonObject) {
+						// TODO Auto-generated method stub
+						try {
+							JSONArray array = jsonObject
+									.getJSONArray("news_data");
+							JsonUtils jsonUtiles = new JsonUtils();
+							noticeItems = jsonUtiles.parseNoticeItemFromJson(array
+									.toString());
+							int number = noticeItems.size();
+							db = MainActivity.this.openOrCreateDatabase("inform", Context.MODE_PRIVATE, null);
+							for(int i=0; i<noticeItems.size(); i++){
+								Cursor cursor = db.rawQuery("select * from notice where news_id="+noticeItems.get(i).getNews_id().toString(), null);
+								
+								if(cursor.moveToNext()){
+									number--;
+									cursor.close();
+								}
+							}
+							db.close();
+							textNews.setText("¤ªÖª¤é¤»                                    " + number);
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						super.onSuccess(jsonObject);
+					}
+
+				});
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_HOME) {
+			moveTaskToBack(true);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 }

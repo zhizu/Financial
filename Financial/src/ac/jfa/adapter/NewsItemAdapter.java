@@ -41,7 +41,8 @@ public class NewsItemAdapter extends BaseAdapter {
 	private List<NewsItem> info = null;
 	private Map<Integer, View> rowViews = new HashMap<Integer, View>();
 	private Context context = null;
-
+    private NewsItem item;
+	
 	public NewsItemAdapter(List<NewsItem> info, Context context) {
 		this.info = info;
 		this.context = context;
@@ -88,7 +89,7 @@ public class NewsItemAdapter extends BaseAdapter {
 			ImageView shareImage = (ImageView) rowView
 					.findViewById(R.id.contentImage);
 
-			final NewsItem item = (NewsItem) getItem(position);
+			item = (NewsItem) getItem(position);
 
 			if (item.getFeed_type().equals("2")) {
 				content_grp_name.setText("ファイナンシャルマガジン");
@@ -186,6 +187,14 @@ public class NewsItemAdapter extends BaseAdapter {
 		});
 		TextView twitterImageView = (TextView) view.findViewById(R.id.twitter);
 		TextView mailImageView = (TextView) view.findViewById(R.id.mail);
+		mailImageView.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				sendMail(item.getContent_detail() + item.getContent_url());
+			}
+		});
 		TextView cancel = (TextView) view.findViewById(R.id.cancel);
 		final Dialog dialog = new Dialog(context, R.style.Dialog_Fullscreen);
 		cancel.setOnClickListener(new OnClickListener() {
@@ -207,4 +216,20 @@ public class NewsItemAdapter extends BaseAdapter {
 		dialog.getWindow().setLayout(720, 370);
 
 	}
+	
+	//发邮件  
+    private void sendMail(String emailBody){  
+         Intent email = new Intent(android.content.Intent.ACTION_SEND);  
+         email.setType("plain/text");  
+         String  emailSubject = "いい新聞ですね！";  
+           
+         //设置邮件默认地址  
+        // email.putExtra(android.content.Intent.EXTRA_EMAIL, emailReciver);  
+         //设置邮件默认标题  
+         email.putExtra(android.content.Intent.EXTRA_SUBJECT, emailSubject);  
+         //设置要默认发送的内容  
+         email.putExtra(android.content.Intent.EXTRA_TEXT, emailBody);  
+         //调用系统的邮件系统  
+         context.startActivity(Intent.createChooser(email, "请选择邮件发送软件"));  
+    }
 }

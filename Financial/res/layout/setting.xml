@@ -63,7 +63,7 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_preference_normal"
+            android:background="@drawable/ic_preference_last_normal"
             android:clickable="true"
             android:gravity="center_vertical" >
 
@@ -87,60 +87,6 @@
                 android:src="@drawable/butn_close" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_preference_normal"
-            android:clickable="true"
-            android:gravity="center_vertical" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="8dp"
-                android:text="Facebook"
-                android:textColor="#000"
-                android:textSize="17sp" />
-
-            <ImageView
-                android:id="@+id/facebook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:scaleType="matrix"
-                android:src="@drawable/butn_close" />
-        </RelativeLayout>
-
-        
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_preference_last_normal"
-            android:clickable="true"
-            android:gravity="center_vertical" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="8dp"
-                android:text="Twitter"
-                android:textColor="#000"
-                android:textSize="17sp" />
-
-            <ImageView
-                android:id="@+id/twitter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:scaleType="matrix"
-                android:src="@drawable/butn_close" />
-        </RelativeLayout>
         
            </LinearLayout>
 

@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.MediaController;
 import android.widget.Toast;
@@ -31,5 +32,13 @@ public class VedioPlayActivity extends Activity{
 		mVideoView.start(); 
 		mVideoView.requestFocus();
 	} 
-	    
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_HOME) {
+			moveTaskToBack(true);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}  
 }

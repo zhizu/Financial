@@ -10,7 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ac.jfa.modal.CategoryItem;
 import ac.jfa.modal.NewsItem;
+import ac.jfa.modal.NoticeItem;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
@@ -25,6 +27,18 @@ public class JsonUtils {
 		LinkedList<NewsItem> items = gson.fromJson(jsonData, listType);
 		for(Iterator iterator = items.iterator(); iterator.hasNext();){
 			NewsItem item = (NewsItem)iterator.next();
+           list.add(item);
+		}
+		return list;
+	}
+	
+	public List<NoticeItem> parseNoticeItemFromJson(String jsonData){
+		List<NoticeItem> list = new ArrayList<NoticeItem>();
+		Type listType = new TypeToken<LinkedList<NoticeItem>>(){}.getType();
+		Gson gson = new Gson();
+		LinkedList<NoticeItem> items = gson.fromJson(jsonData, listType);
+		for(Iterator iterator = items.iterator(); iterator.hasNext();){
+			NoticeItem item = (NoticeItem)iterator.next();
            list.add(item);
 		}
 		return list;
@@ -47,6 +61,18 @@ public class JsonUtils {
 			}
 		}
 		
+		return list;
+	}
+	
+	public List<CategoryItem> parseCategoryItemFromJson(String jsonData){
+		List<CategoryItem> list = new ArrayList<CategoryItem>();
+		Type listType = new TypeToken<LinkedList<CategoryItem>>(){}.getType();
+		Gson gson = new Gson();
+		LinkedList<CategoryItem> items = gson.fromJson(jsonData, listType);
+		for(Iterator iterator = items.iterator(); iterator.hasNext();){
+			CategoryItem item = (CategoryItem)iterator.next();
+           list.add(item);
+		}
 		return list;
 	}
 }

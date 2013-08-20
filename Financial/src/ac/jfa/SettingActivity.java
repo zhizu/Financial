@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -16,7 +17,7 @@ import android.widget.Toast;
 
 public class SettingActivity extends Activity{
 
-	private ImageView pass,push,facebook,twitter = null;
+	private ImageView pass,push = null;
 	private ImageButton imageButton = null;
 	private SharedPreferences preferences = null;
 	
@@ -72,8 +73,7 @@ public class SettingActivity extends Activity{
 		}
 		pass = (ImageView)findViewById(R.id.pass);
 		push = (ImageView)findViewById(R.id.push);
-		facebook = (ImageView)findViewById(R.id.facebook);
-		twitter = (ImageView)findViewById(R.id.twitter);
+		
 		preferences = getSharedPreferences("setting", MODE_WORLD_READABLE);
 		if(preferences.getString("push_flag", "").equals("1")){
 			push.setImageResource(R.drawable.butn_close);
@@ -103,6 +103,16 @@ public class SettingActivity extends Activity{
 		
 		
 		super.onActivityResult(requestCode, resultCode, data);
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_HOME) {
+			moveTaskToBack(true);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 	
 }

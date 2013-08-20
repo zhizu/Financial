@@ -18,6 +18,7 @@ import android.content.SharedPreferences.Editor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.view.KeyEvent;
 
 public class StartActivity extends Activity{
 
@@ -31,9 +32,9 @@ public class StartActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		preferences = getSharedPreferences("count", MODE_WORLD_READABLE);
 		int count = preferences.getInt("count", 0);
+		
 		helper = new DBHelper(this, "inform");
 		if (count == 0) {
-			
 			db = helper.getWritableDatabase();
 			ContentValues values = new ContentValues();
 			Information information = new Information();
@@ -70,7 +71,6 @@ public class StartActivity extends Activity{
 						@Override
 						public void onSuccess(JSONObject jsonObject) {
 							// TODO Auto-generated method stub
-							System.out.println("yangxu--->" + jsonObject.toString());
 							super.onSuccess(jsonObject);
 						}
 
@@ -107,6 +107,16 @@ public class StartActivity extends Activity{
 //			 cursor.close();
 //			 db.close();
 		}
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_HOME) {
+			moveTaskToBack(true);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 	
 }

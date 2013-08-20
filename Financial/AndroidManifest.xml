@@ -36,7 +36,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".StartActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main" 
+            >
            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,78 +46,106 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main" 
+            >
            
         </activity>
         <activity
             android:name=".KouzaActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+             >
             
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+             >
             
         </activity>
         <activity
             android:name=".UserActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main" 
+            >
             
         </activity>
          <activity
             android:name=".RegistActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            >
             
         </activity>
         <activity
             android:name=".PassActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            >
              
         </activity>
         <activity
             android:name=".HistoryActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+             >
             
         </activity>
         <activity
             android:name=".AnimActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main" 
+            >
             
         </activity>
         <activity
             android:name=".CardActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+             >
             
         </activity>
           <activity
             android:name=".mymap.MapActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+             >
             
         </activity>  
          <activity
             android:name="SettingFacebookActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            android:noHistory="true" >
             
         </activity>
         <activity
             android:name="NoticeActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            >
             
         </activity>  
         <activity
             android:name="MailActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+             >
             
         </activity> 
         <activity
             android:name="SettingActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+             >
+            
+        </activity>  
+        <activity
+            android:name="ReadItemActivity"
+            android:label="@string/title_activity_main"
+             >
             
         </activity>  
         <activity
             android:name="VedioPlayActivity"
             android:label="@string/title_activity_main"
-            android:configChanges="orientation|screenSize" >
+            android:configChanges="orientation|screenSize"
+             >
+            
+        </activity>  
+        <activity
+            android:name="CategoryActivity"
+            android:label="@string/title_activity_main"
+            android:configChanges="orientation|screenSize"
+             >
             
         </activity>  
         <activity android:name="com.facebook.LoginActivity"

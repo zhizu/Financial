@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
@@ -70,5 +71,14 @@ public class HistoryActivity extends Activity{
 	        historyList.setDividerHeight(0);
 	        historyList.setCacheColorHint(Color.TRANSPARENT);
 	        schoolList.setDividerHeight(0);
+	}
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_HOME) {
+			moveTaskToBack(true);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 }
