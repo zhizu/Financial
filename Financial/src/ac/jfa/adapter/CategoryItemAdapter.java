@@ -55,9 +55,14 @@ public class CategoryItemAdapter extends BaseAdapter{
 			LayoutInflater layoutInflater = LayoutInflater.from(context);
 			rowView = layoutInflater.inflate(R.layout.categoryitem, null);
 			TextView categoryItem = (TextView)rowView.findViewById(R.id.Category);
-
+            RelativeLayout CategoryLayout = (RelativeLayout)rowView.findViewById(R.id.CategoryLayout);
 			item = (CategoryItem) getItem(position);
-			categoryItem.setText(item.getMovie_ctegory_name());
+			if(position == 0){
+				CategoryLayout.setBackgroundResource(R.drawable.ic_preference_first_normal);
+			}else if(position == info.size()-1){
+				CategoryLayout.setBackgroundResource(R.drawable.ic_preference_last_normal);
+			}
+			categoryItem.setText(item.getMovie_category_name());
 			rowViews.put(position, rowView);
 		}
 		return rowView;

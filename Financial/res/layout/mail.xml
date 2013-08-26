@@ -53,7 +53,7 @@
         android:textColor="#0000cd" />
 
     <EditText
-        android:id="@+id/mail"
+        android:id="@+id/content"
         android:layout_width="fill_parent"
         android:layout_height="370dp"
         android:layout_marginLeft="10dp"

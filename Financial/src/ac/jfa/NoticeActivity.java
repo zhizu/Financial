@@ -48,17 +48,20 @@ public class NoticeActivity extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				db = NoticeActivity.this.openOrCreateDatabase("inform", Context.MODE_PRIVATE, null);
-				Cursor cursor = db.rawQuery("select * from notice", null);
-				while (cursor.moveToNext()) {
-					String name = cursor.getString(cursor
-							.getColumnIndex("news_id"));
-					System.out.println("yangxuquery--->" + name);
-				}
-				 cursor.close();
-				 db.close();
-//				finish();
-//				overridePendingTransition(0,R.anim.out_to_right);
+//				db = NoticeActivity.this.openOrCreateDatabase("inform", Context.MODE_PRIVATE, null);
+//				Cursor cursor = db.rawQuery("select * from notice", null);
+//				while (cursor.moveToNext()) {
+//					String name = cursor.getString(cursor
+//							.getColumnIndex("news_id"));
+//					System.out.println("yangxuquery--->" + name);
+//				}
+//				 cursor.close();
+//				 db.close();
+				Intent intent = new Intent();
+				intent.setClass(NoticeActivity.this, MainActivity.class);
+				startActivity(intent);				
+				overridePendingTransition(0,R.anim.out_to_right);
+				finish();
 			}
 		});
 		
@@ -74,12 +77,14 @@ public class NoticeActivity extends Activity{
 					Intent intent = new Intent();
 					intent.setClass(NoticeActivity.this, ReadItemActivity.class);
 					intent.putExtra("item", currentItem);
+					intent.putExtra("from", "notice");
 					NoticeActivity.this.startActivity(intent);
 					overridePendingTransition(R.anim.in_from_right, R.anim.out);
 				}else if(currentItem.getNews_type().equals("1")){
 					Intent intent = new Intent();
 					intent.setClass(NoticeActivity.this, KouzaActivity.class);
 					intent.putExtra("url", currentItem.getMessage());
+					intent.putExtra("from", "notice");
 					NoticeActivity.this.startActivity(intent);
 					overridePendingTransition(R.anim.in_from_right, R.anim.out);
 				}

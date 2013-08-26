@@ -24,7 +24,6 @@ public class VedioPlayActivity extends Activity{
 		
 		Intent intent = getIntent();
 		url = intent.getStringExtra("url");
-		
 		mVideoView = (VideoView) findViewById(R.id.surface_view);
 		mVideoView.setVideoPath(url);
 		MediaController controller = new MediaController(this);
@@ -38,6 +37,9 @@ public class VedioPlayActivity extends Activity{
 		if (keyCode == KeyEvent.KEYCODE_HOME) {
 			moveTaskToBack(true);
 			return true;
+		}
+		if(keyCode == KeyEvent.KEYCODE_BACK){
+			mVideoView.pause();
 		}
 		return super.onKeyDown(keyCode, event);
 	}  

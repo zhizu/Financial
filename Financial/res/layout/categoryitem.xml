@@ -8,8 +8,7 @@
         android:id="@+id/CategoryLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/preference_item"
-        android:clickable="true"
+        android:background="@drawable/ic_preference_normal"
         android:gravity="center_vertical" >
 
         <TextView

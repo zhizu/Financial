@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import ac.jfa.modal.CategoryItem;
 import ac.jfa.modal.NewsItem;
 import ac.jfa.modal.NoticeItem;
+import ac.jfa.modal.Video;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
@@ -71,6 +72,17 @@ public class JsonUtils {
 		LinkedList<CategoryItem> items = gson.fromJson(jsonData, listType);
 		for(Iterator iterator = items.iterator(); iterator.hasNext();){
 			CategoryItem item = (CategoryItem)iterator.next();
+           list.add(item);
+		}
+		return list;
+	}
+	public List<Video> parseMovieFromJson(String jsonData){
+		List<Video> list = new ArrayList<Video>();
+		Type listType = new TypeToken<LinkedList<Video>>(){}.getType();
+		Gson gson = new Gson();
+		LinkedList<Video> items = gson.fromJson(jsonData, listType);
+		for(Iterator iterator = items.iterator(); iterator.hasNext();){
+			Video item = (Video)iterator.next();
            list.add(item);
 		}
 		return list;

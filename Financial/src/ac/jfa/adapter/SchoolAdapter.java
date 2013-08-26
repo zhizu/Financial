@@ -10,10 +10,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,6 +30,8 @@ public class SchoolAdapter extends BaseAdapter {
 	private Map<Integer, View> rowViews = new HashMap<Integer, View>();
 	private Context context = null;
 
+	private Location location,location2 = null;
+	private LocationManager locationManager;
 	public SchoolAdapter(List<School> info, Context context) {
 		this.info = info;
 		this.context = context;
@@ -65,16 +69,19 @@ public class SchoolAdapter extends BaseAdapter {
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 
-					Criteria criteria = new Criteria();
-					LocationManager locationManager = (LocationManager) context
-							.getSystemService(Context.LOCATION_SERVICE);
-					String provider = locationManager.getBestProvider(criteria,
-							false);
-					Location location = locationManager
-							.getLastKnownLocation(provider);
-					double lat = location.getLatitude();
-					double lng = location.getLongitude();
-					LatLng coordinate = new LatLng(lat, lng);
+					// Criteria criteria = new Criteria();
+					// LocationManager locationManager = (LocationManager)
+					// context
+					// .getSystemService(Context.LOCATION_SERVICE);
+					// String provider =
+					// locationManager.getBestProvider(criteria,
+					// false);
+					// Location location = locationManager
+					// .getLastKnownLocation(provider);
+					// double lat = location.getLatitude();
+					// double lng = location.getLongitude();
+					LatLng coordinate = new LatLng(getLocation().getLatitude(),
+							getLocation().getLongitude());
 
 					String uc = "東京・御茶ノ水・ソラシティ カンファレンスセンター";
 					Intent intent = new Intent();
@@ -123,5 +130,113 @@ public class SchoolAdapter extends BaseAdapter {
 				.queryIntentActivities(intent,
 						PackageManager.COMPONENT_ENABLED_STATE_DEFAULT);
 		return activities.size() != 0;
+	}
+
+	public Location getLocation() {
+		
+		try {
+			locationManager = (LocationManager) context
+					.getSystemService(Context.LOCATION_SERVICE);
+
+			// getting GPS status
+			boolean isGPSEnabled = locationManager
+					.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+			// getting network status
+			boolean isNetworkEnabled = locationManager
+					.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+
+			if (!isGPSEnabled && !isNetworkEnabled) {
+				// no network provider is enabled
+				System.out.println("not");
+			} else {
+				// this.canGetLocation = true;
+				if (isNetworkEnabled) {
+					locationManager.requestLocationUpdates(
+							LocationManager.NETWORK_PROVIDER, 5000, 500,
+							new LocationListener() {
+
+								@Override
+								public void onStatusChanged(String provider,
+										int status, Bundle extras) {
+									// TODO Auto-generated method stub
+
+								}
+
+								@Override
+								public void onProviderEnabled(String provider) {
+									// TODO Auto-generated method stub
+
+								}
+
+								@Override
+								public void onProviderDisabled(String provider) {
+									// TODO Auto-generated method stub
+
+								}
+
+								@Override
+								public void onLocationChanged(Location location) {
+									// TODO Auto-generated method stub
+
+								}
+							});
+					if (locationManager != null) {
+						location = locationManager
+								.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+						if (location != null) {
+							location2 = location;
+						}
+					}
+				}
+				// if GPS Enabled get lat/long using GPS Services
+				if (isGPSEnabled) {
+					System.out.println("yangxuGPScan");
+					if (location == null) {
+						locationManager.requestLocationUpdates(
+								LocationManager.GPS_PROVIDER, 5000, 500,
+								new LocationListener() {
+
+									@Override
+									public void onStatusChanged(
+											String provider, int status,
+											Bundle extras) {
+										// TODO Auto-generated method stub
+									}
+
+									@Override
+									public void onProviderEnabled(
+											String provider) {
+										// TODO Auto-generated method stub
+									}
+
+									@Override
+									public void onProviderDisabled(
+											String provider) {
+										// TODO Auto-generated method stub
+									}
+
+									@Override
+									public void onLocationChanged(
+											Location location) {
+										// TODO Auto-generated method stub
+									}
+								});
+						if (locationManager != null) {
+							location = locationManager
+									.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+							if (location != null) {
+								location2 = location;
+							}
+						}
+					}
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return location2;
 	}
 }

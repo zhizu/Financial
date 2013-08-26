@@ -25,6 +25,7 @@ public class DBHelper extends SQLiteOpenHelper{
 		// TODO Auto-generated method stub 
 		db.execSQL("create table information(phone_no varchar, phone_key varchar, ko_no varchar, device_type varchar, token varchar, push_flag varchar, pass_code varchar)");
 		db.execSQL("create table notice(send_date varchar, title varchar, news_type varchar, message varchar, news_id varchar)");
+		db.execSQL("create table user_inform(dl_sid varchar, sid varchar, ko_tani varchar, ko_point varchar, ko_no varchar, ko_mail varchar, ko_name1 varchar,ko_name2 varchar)");
 	}
 
 	@Override

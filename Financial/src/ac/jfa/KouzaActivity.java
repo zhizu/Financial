@@ -1,6 +1,5 @@
 package ac.jfa;
 
-import ac.jfa.util.Manager;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -19,7 +18,8 @@ public class KouzaActivity extends Activity {
 	private String Url;
 	private ImageButton imageButton = null;
 	private WebView webView = null;
-
+    private String from;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -27,15 +27,25 @@ public class KouzaActivity extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.kouza);
-
+        
 		Intent intent = getIntent();
 		Url = intent.getStringExtra("url");
+		from = intent.getStringExtra("from");
 		imageButton = (ImageButton) findViewById(R.id.img_search);
 		imageButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				if(from.equals("main")){
+					intent.setClass(KouzaActivity.this, MainActivity.class);
+				}else if(from.equals("notice")){
+					intent.setClass(KouzaActivity.this, NoticeActivity.class);
+				}else if(from.equals("video")){
+					
+				}
+				startActivity(intent);
 				finish();
 				overridePendingTransition(0, R.anim.out_to_right);
 			}

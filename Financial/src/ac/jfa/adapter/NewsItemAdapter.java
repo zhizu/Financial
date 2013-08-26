@@ -82,6 +82,8 @@ public class NewsItemAdapter extends BaseAdapter {
 			ImageView logoImage = (ImageView) rowView
 					.findViewById(R.id.logoImage);
 
+			ImageView catagoryView = (ImageView)rowView.findViewById(R.id.catalog_img);
+			
 			TextView content_grp_name = (TextView) rowView
 					.findViewById(R.id.content_grp_name);
 
@@ -91,6 +93,24 @@ public class NewsItemAdapter extends BaseAdapter {
 
 			item = (NewsItem) getItem(position);
 
+			if(item.getFeed_type().equals("1")){
+				catagoryView.setBackgroundResource(R.drawable.bt_category06);
+			}else if(item.getFeed_type().equals("2")){
+				catagoryView.setBackgroundResource(R.drawable.bt_category05);
+			}else if(item.getFeed_type().equals("3")){
+				catagoryView.setBackgroundResource(R.drawable.bt_category04);
+			}else if(item.getFeed_type().equals("4")){
+				catagoryView.setBackgroundResource(R.drawable.bt_category03);
+			}else if(item.getFeed_type().equals("5")){
+				catagoryView.setBackgroundResource(R.drawable.bt_category02);
+			}else if(item.getFeed_type().equals("6")){
+				catagoryView.setBackgroundResource(R.drawable.bt_category01);
+			}else if(item.getFeed_type().equals("99")){
+				catagoryView.setBackgroundResource(R.drawable.bt_category00);
+			}
+				
+			
+			
 			if (item.getFeed_type().equals("2")) {
 				content_grp_name.setText("ファイナンシャルマガジン");
 				logoImage.setImageResource(R.drawable.fm_logo);

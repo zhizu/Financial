@@ -28,11 +28,18 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical" >
+
         <ac.jfa.xListView.XListView
-    android:id="@+id/xListView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-    />
+            android:id="@+id/xListView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone" >
+        </ListView>
     </LinearLayout>
 
 </LinearLayout>

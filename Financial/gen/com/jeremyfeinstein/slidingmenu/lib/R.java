@@ -24,7 +24,7 @@ public final class R {
 		public static final int viewBehind = 0x7f010022;
 	}
 	public static final class drawable {
-		public static final int ic_launcher = 0x7f020059;
+		public static final int ic_launcher = 0x7f020068;
 	}
 	public static final class id {
 		public static final int fullscreen = 0x7f05000a;
@@ -32,10 +32,10 @@ public final class R {
 		public static final int margin = 0x7f050009;
 		public static final int right = 0x7f050008;
 		public static final int selected_view = 0x7f05000b;
-		public static final int slidingmenumain = 0x7f050079;
+		public static final int slidingmenumain = 0x7f05007f;
 	}
 	public static final class layout {
-		public static final int slidingmenumain = 0x7f030025;
+		public static final int slidingmenumain = 0x7f030026;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f06002e;

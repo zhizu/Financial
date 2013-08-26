@@ -76,6 +76,5 @@ public class NewsItem implements Serializable{
 	public void setFeed_type(String feed_type) {
 		this.feed_type = feed_type;
 	}
-	
-	
+
 }

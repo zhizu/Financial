@@ -2,22 +2,21 @@ package ac.jfa;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
-
-import com.google.gson.JsonObject;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
 
 import ac.jfa.database.DBHelper;
+import ac.jfa.download.AsyncHttpClient;
+import ac.jfa.download.JsonHttpResponseHandler;
 import ac.jfa.modal.UserItem;
-import ac.jfa.util.Manager;
 import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -66,8 +65,11 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				finish();
+				Intent intent = new Intent();
+				intent.setClass(LoginActivity.this, MainActivity.class);
+				startActivity(intent);
 				overridePendingTransition(0, R.anim.out_to_right);
+				finish();
 			}
 		});
 		login_btn = (Button) findViewById(R.id.login_btn);
@@ -139,6 +141,29 @@ public class LoginActivity extends Activity {
 														.getString("ko_name1"));
 												userItem.setKo_name2(json
 														.getString("ko_name2"));
+
+												db = LoginActivity.this
+														.openOrCreateDatabase(
+																"inform",
+																Context.MODE_PRIVATE,
+																null);
+												db.execSQL(
+														"INSERT INTO user_inform VALUES (?,?,?,?,?,?,?,?)",
+														new Object[] {
+																userItem.getDl_sid(),
+																userItem.getSid(),
+																userItem.getKo_tani(),
+																userItem.getKo_point(),
+																userItem.getKo_no(),
+																userItem.getKo_mail(),
+																userItem.getKo_name1(),
+																userItem.getKo_name2() });
+												TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+												 ContentValues cv = new ContentValues();  
+											        cv.put("ko_no", userItem.getKo_no());  
+											        String[] args = {String.valueOf(tm.getDeviceId())};  
+											        db.update("information", cv, "phone_no=?",args); 
+											        db.close();
 												Intent intent = new Intent();
 												intent.setClass(
 														LoginActivity.this,
@@ -150,6 +175,7 @@ public class LoginActivity extends Activity {
 												overridePendingTransition(
 														R.anim.in_from_right,
 														R.anim.out);
+												finish();
 											} else {
 												Toast.makeText(
 														LoginActivity.this,

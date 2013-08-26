@@ -8,6 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ac.jfa.R;
+import ac.jfa.download.AsyncHttpClient;
+import ac.jfa.download.JsonHttpResponseHandler;
 import ac.jfa.util.JsonUtils;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -25,17 +27,12 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polygon;
-import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.gson.JsonArray;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class MapActivity extends FragmentActivity{
 
 	private  GoogleMap map = null;
-	private LatLng coordinate = null;
+//	private LatLng coordinate = null;
 	
 	  @Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -47,10 +44,10 @@ public class MapActivity extends FragmentActivity{
 	        Criteria criteria = new Criteria();
 	        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 	        String provider = locationManager.getBestProvider(criteria, false);
-	        Location location = locationManager.getLastKnownLocation(provider);
-	        double lat =  location.getLatitude();
-	        double lng = location.getLongitude();
-	        coordinate = new LatLng(lat, lng);
+//	        Location location = locationManager.getLastKnownLocation(provider);
+//	        double lat =  location.getLatitude();
+//	        double lng = location.getLongitude();
+//	        coordinate = new LatLng(lat, lng);
 	       map = ((SupportMapFragment)  getSupportFragmentManager().findFragmentById(R.id.map))
 	                .getMap();
 	        
@@ -59,12 +56,12 @@ public class MapActivity extends FragmentActivity{
 	        map.setMyLocationEnabled(true);
 	        map.setTrafficEnabled(false);
 	        
-	        CameraUpdate center=
-	                CameraUpdateFactory.newLatLng(coordinate);
-	            CameraUpdate zoom=CameraUpdateFactory.zoomTo(15);
-
-	            map.moveCamera(center);
-	            map.animateCamera(zoom);
+//	        CameraUpdate center=
+//	                CameraUpdateFactory.newLatLng(coordinate);
+//	            CameraUpdate zoom=CameraUpdateFactory.zoomTo(15);
+//
+//	            map.moveCamera(center);
+//	            map.animateCamera(zoom);
 	        
 			AsyncHttpClient client = new AsyncHttpClient();
 			 client.get(MapActivity.this, "http://maps.googleapis.com/maps/api/directions/json?origin=35.6982201,139.7468066&destination=35.69987450,139.76377490&sensor=false&mode=walking", new JsonHttpResponseHandler(){

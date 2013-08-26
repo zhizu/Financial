@@ -27,6 +27,7 @@ public class PassActivity extends Activity implements OnClickListener{
 	private ImageView view_1,view_2,view_3,view_4 = null;
 	private TextView textView = null;//控制标题
 	private String from;//判断是从哪个Activity跳转过来的
+	private String password2;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -41,6 +42,7 @@ public class PassActivity extends Activity implements OnClickListener{
 			textView.setText("パスワード");
 		}else if(from.equals("init")){
 			textView.setText("パスワード");
+			password2 = intent.getStringExtra("pass");
 		}
 		
 		
@@ -158,8 +160,6 @@ public class PassActivity extends Activity implements OnClickListener{
 			sb.append(pass);
 			if(from.equals("init")){
 				String password = sb.toString();
-				SharedPreferences preferences = getSharedPreferences("setting", MODE_WORLD_READABLE);
-				String password2 = preferences.getString("pass_code", "");
 				if(password.equals(password2)){
 					Intent intent = new Intent();
 					intent.setClass(PassActivity.this, MainActivity.class);

@@ -1,8 +1,8 @@
 package ac.jfa.util;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import ac.jfa.download.AsyncHttpClient;
+import ac.jfa.download.AsyncHttpResponseHandler;
+import ac.jfa.download.RequestParams;
 
 public class FaRestClient {
 	private static AsyncHttpClient client = new AsyncHttpClient();

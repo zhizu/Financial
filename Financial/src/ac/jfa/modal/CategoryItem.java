@@ -2,19 +2,20 @@ package ac.jfa.modal;
 
 public class CategoryItem {
 
-	private String movie_ctegory_name;
-	private String movie_ctegory;
-	public String getMovie_ctegory_name() {
-		return movie_ctegory_name;
+	private String movie_category_name;
+	private String movie_category;
+	public String getMovie_category_name() {
+		return movie_category_name;
 	}
-	public void setMovie_ctegory_name(String movie_ctegory_name) {
-		this.movie_ctegory_name = movie_ctegory_name;
+	public void setMovie_category_name(String movie_category_name) {
+		this.movie_category_name = movie_category_name;
 	}
-	public String getMovie_ctegory() {
-		return movie_ctegory;
+	public String getMovie_category() {
+		return movie_category;
 	}
-	public void setMovie_ctegory(String movie_ctegory) {
-		this.movie_ctegory = movie_ctegory;
+	public void setMovie_category(String movie_category) {
+		this.movie_category = movie_category;
 	}
+
 	
 }

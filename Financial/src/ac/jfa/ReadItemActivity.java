@@ -20,12 +20,21 @@ public class ReadItemActivity extends Activity{
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.readitem);
-		Intent intent = getIntent();
-		NoticeItem item = (NoticeItem) intent.getSerializableExtra("item");
 		TextView title = (TextView)findViewById(R.id.title);
-		title.setText(item.getTitle());
 		TextView content = (TextView)findViewById(R.id.message);
-		content.setText(item.getMessage());
+		Intent intent = getIntent();
+		String from = intent.getStringExtra("from");
+		if(from.equals("notice")){
+			NoticeItem item = (NoticeItem) intent.getSerializableExtra("item");
+			title.setText(item.getTitle());
+			content.setText(item.getMessage());
+		}else{
+			title.setText("„Ó»­é‡ÓE¤Ë¤Ä¤¤¤Æ");
+			content.setText(R.string.content);
+		}
+		
+		
+		
 		imageButton = (ImageButton) findViewById(R.id.img_search);
 		imageButton.setOnClickListener(new OnClickListener() {
 

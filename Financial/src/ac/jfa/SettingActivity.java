@@ -2,11 +2,16 @@ package ac.jfa;
 
 import ac.jfa.util.Manager;
 import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,8 +24,8 @@ public class SettingActivity extends Activity{
 
 	private ImageView pass,push = null;
 	private ImageButton imageButton = null;
-	private SharedPreferences preferences = null;
-	
+	private SQLiteDatabase db = null;
+	private String password = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -34,18 +39,28 @@ public class SettingActivity extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				preferences = getSharedPreferences("setting", MODE_WORLD_READABLE);
-				if(preferences.getString("pass_code", "").equals("null")){
+				db = SettingActivity.this.openOrCreateDatabase("inform", Context.MODE_PRIVATE, null);
+				Cursor cursor = db.rawQuery("select * from information", null);
+				while (cursor.moveToNext()) {
+					password = cursor.getString(cursor
+							.getColumnIndex("pass_code"));
+				}
+				
+				if(password.equals("")){
 					Intent intent = new Intent();
 					intent.setClass(SettingActivity.this, PassActivity.class);
 					intent.putExtra("from", "set");
 					startActivityForResult(intent, 1);
 				}else{
-					preferences.edit().putString("pass_code", "null").commit();
+					TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+					ContentValues cv = new ContentValues();  
+			        cv.put("pass_code", "");  
+			        String[] args = {String.valueOf(tm.getDeviceId())};  
+			        db.update("information", cv, "phone_no=?",args); 
 					pass.setImageResource(R.drawable.butn_close);
-					Toast.makeText(SettingActivity.this, preferences.getString("pass_code", ""), Toast.LENGTH_SHORT).show();
 				}
-				
+				cursor.close();
+				db.close();
 			}
 		});
 		
@@ -58,29 +73,28 @@ public class SettingActivity extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				finish();
+				Intent intent = new Intent();
+				intent.setClass(SettingActivity.this, MainActivity.class);
+				startActivity(intent);				
 				overridePendingTransition(0,R.anim.out_to_right);
+				finish();
 			}
 		});
-		preferences = getSharedPreferences("count_2", MODE_WORLD_READABLE);
-		String count_2 = preferences.getString("count_2", "0");
-		if(count_2.equals("0")){
-			preferences = getSharedPreferences("setting", MODE_WORLD_READABLE);
-			preferences.edit().putString("push_flag", "1").commit();
-			preferences.edit().putString("pass_code", "null").commit();
-			preferences = getSharedPreferences("count_2", MODE_WORLD_READABLE);
-			preferences.edit().putString("count_2", "1").commit();
-		}
 		pass = (ImageView)findViewById(R.id.pass);
 		push = (ImageView)findViewById(R.id.push);
 		
-		preferences = getSharedPreferences("setting", MODE_WORLD_READABLE);
-		if(preferences.getString("push_flag", "").equals("1")){
-			push.setImageResource(R.drawable.butn_close);
-		}else{
-			push.setImageResource(R.drawable.butn_open);
+		db = SettingActivity.this.openOrCreateDatabase("inform", Context.MODE_PRIVATE, null);
+		Cursor cursor = db.rawQuery("select * from information", null);
+		while (cursor.moveToNext()) {
+			password = cursor.getString(cursor
+					.getColumnIndex("pass_code"));
 		}
-		if(preferences.getString("pass_code", "").equals("null")){
+//		if(preferences.getString("push_flag", "").equals("1")){
+//			push.setImageResource(R.drawable.butn_close);
+//		}else{
+//			push.setImageResource(R.drawable.butn_open);
+//		}
+		if(password.equals("")){
 			pass.setImageResource(R.drawable.butn_close);
 		}else{
 			pass.setImageResource(R.drawable.butn_open);
@@ -93,10 +107,14 @@ public class SettingActivity extends Activity{
 		if(requestCode == 1){
 			if(resultCode == 1){
 				String password = data.getStringExtra("pass");
-			    preferences = getSharedPreferences("setting", MODE_WORLD_READABLE);
-			    preferences.edit().putString("pass_code", password).commit();
+				db = SettingActivity.this.openOrCreateDatabase("inform", Context.MODE_PRIVATE, null);
+				TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+				ContentValues cv = new ContentValues();  
+		        cv.put("pass_code", password);  
+		        String[] args = {String.valueOf(tm.getDeviceId())};  
+		        db.update("information", cv, "phone_no=?",args); 
 				pass.setImageResource(R.drawable.butn_open);
-				Toast.makeText(SettingActivity.this, preferences.getString("pass_code", ""), Toast.LENGTH_SHORT).show();
+				db.close();
 			}
 		    
 		}
