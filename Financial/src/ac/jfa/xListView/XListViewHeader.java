@@ -49,7 +49,7 @@ public class XListViewHeader extends LinearLayout {
 	}
 
 	private void initView(Context context) {
-		// ³õÊ¼Çé¿ö£¬ÉèÖÃÏÂÀ­Ë¢ĞÂview¸ß¶ÈÎª0
+		// åˆå§‹æƒ…å†µï¼Œè®¾ç½®ä¸‹æ‹‰åˆ·æ–°viewé«˜åº¦ä¸º0
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
 				LayoutParams.FILL_PARENT, 0);
 		mContainer = (LinearLayout) LayoutInflater.from(context).inflate(
@@ -78,11 +78,11 @@ public class XListViewHeader extends LinearLayout {
 	public void setState(int state) {
 		if (state == mState) return ;
 		
-		if (state == STATE_REFRESHING) {	// ÏÔÊ¾½ø¶È
+		if (state == STATE_REFRESHING) {	// æ˜¾ç¤ºè¿›åº¦
 			mArrowImageView.clearAnimation();
 			mArrowImageView.setVisibility(View.INVISIBLE);
 			mProgressBar.setVisibility(View.VISIBLE);
-		} else {	// ÏÔÊ¾¼ıÍ·Í¼Æ¬
+		} else {	// æ˜¾ç¤ºç®­å¤´å›¾ç‰‡
 			mArrowImageView.setVisibility(View.VISIBLE);
 			mProgressBar.setVisibility(View.INVISIBLE);
 		}
@@ -95,21 +95,21 @@ public class XListViewHeader extends LinearLayout {
 			if (mState == STATE_REFRESHING) {
 				mArrowImageView.clearAnimation();
 			}
-			mHintTextView.setText("ÏÂ¤Ø¥¹¥é¥¤¥É¤·¤Æ¸üĞÂ...");
+			mHintTextView.setText("ä¸‹ã¸ã‚¹ãƒ©ã‚¤ãƒ‰ã—ã¦æ›´æ–°...");
 			break;
 		case STATE_READY:
 			if (mState != STATE_READY) {
 				mArrowImageView.clearAnimation();
 				mArrowImageView.startAnimation(mRotateUpAnim);
-				mHintTextView.setText("¥ê¥ê©`¥¹¤·¤Æ¸üĞÂ...");
+				mHintTextView.setText("ãƒªãƒªãƒ¼ã‚¹ã—ã¦æ›´æ–°...");
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd/ HH:mm:ss");     
-				 Date curDate = new Date(System.currentTimeMillis());//»ñÈ¡µ±Ç°Ê±¼ä     
+				 Date curDate = new Date(System.currentTimeMillis());//è·å–å½“å‰æ—¶é—´     
 				String str = formatter.format(curDate);
-				date.setText("×î½K¸üĞÂÈÕ•r£º"+str);
+				date.setText("æœ€çµ‚æ›´æ–°æ—¥æ™‚ï¼š"+str);
 			}
 			break;
 		case STATE_REFRESHING:
-			mHintTextView.setText("¸üĞÂÖĞ...");
+			mHintTextView.setText("æ›´æ–°ä¸­...");
 			break;
 			default:
 		}

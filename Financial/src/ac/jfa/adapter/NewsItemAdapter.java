@@ -112,10 +112,10 @@ public class NewsItemAdapter extends BaseAdapter {
 			
 			
 			if (item.getFeed_type().equals("2")) {
-				content_grp_name.setText("¥Õ¥¡¥¤¥Ê¥ó¥·¥ã¥ë¥Ş¥¬¥¸¥ó");
+				content_grp_name.setText("ãƒ•ã‚¡ã‚¤ãƒŠãƒ³ã‚·ãƒ£ãƒ«ãƒã‚¬ã‚¸ãƒ³");
 				logoImage.setImageResource(R.drawable.fm_logo);
 			} else {
-				content_grp_name.setText("¥Õ¥¡¥¤¥Ê¥ó¥·¥ã¥ë¥¢¥«¥Ç¥ß©`");
+				content_grp_name.setText("ãƒ•ã‚¡ã‚¤ãƒŠãƒ³ã‚·ãƒ£ãƒ«ã‚¢ã‚«ãƒ‡ãƒŸãƒ¼");
 				logoImage.setImageResource(R.drawable.fa_logo);
 			}
 
@@ -228,8 +228,8 @@ public class NewsItemAdapter extends BaseAdapter {
 		dialog.setContentView(view);
 		Window window = dialog.getWindow();
 		WindowManager.LayoutParams lp = window.getAttributes();
-		window.setGravity(Gravity.LEFT | Gravity.BOTTOM); // ´Ë´¦¿ÉÒÔÉèÖÃdialogÏÔÊ¾µÄÎ»ÖÃ
-		window.setWindowAnimations(R.style.mystyle); // Ìí¼Ó¶¯»­
+		window.setGravity(Gravity.LEFT | Gravity.BOTTOM); // æ­¤å¤„å¯ä»¥è®¾ç½®dialogæ˜¾ç¤ºçš„ä½ç½®
+		window.setWindowAnimations(R.style.mystyle); // æ·»åŠ åŠ¨ç”»
 		dialog.setCanceledOnTouchOutside(true);
 		dialog.show();
 		// lp.alpha = 0.9f;
@@ -237,19 +237,19 @@ public class NewsItemAdapter extends BaseAdapter {
 
 	}
 	
-	//·¢ÓÊ¼ş  
+	//å‘é‚®ä»¶  
     private void sendMail(String emailBody){  
          Intent email = new Intent(android.content.Intent.ACTION_SEND);  
          email.setType("plain/text");  
-         String  emailSubject = "¤¤¤¤ĞÂÂ„¤Ç¤¹¤Í£¡";  
+         String  emailSubject = "ã„ã„æ–°èã§ã™ã­ï¼";  
            
-         //ÉèÖÃÓÊ¼şÄ¬ÈÏµØÖ·  
+         //è®¾ç½®é‚®ä»¶é»˜è®¤åœ°å€  
         // email.putExtra(android.content.Intent.EXTRA_EMAIL, emailReciver);  
-         //ÉèÖÃÓÊ¼şÄ¬ÈÏ±êÌâ  
+         //è®¾ç½®é‚®ä»¶é»˜è®¤æ ‡é¢˜  
          email.putExtra(android.content.Intent.EXTRA_SUBJECT, emailSubject);  
-         //ÉèÖÃÒªÄ¬ÈÏ·¢ËÍµÄÄÚÈİ  
+         //è®¾ç½®è¦é»˜è®¤å‘é€çš„å†…å®¹  
          email.putExtra(android.content.Intent.EXTRA_TEXT, emailBody);  
-         //µ÷ÓÃÏµÍ³µÄÓÊ¼şÏµÍ³  
-         context.startActivity(Intent.createChooser(email, "ÇëÑ¡ÔñÓÊ¼ş·¢ËÍÈí¼ş"));  
+         //è°ƒç”¨ç³»ç»Ÿçš„é‚®ä»¶ç³»ç»Ÿ  
+         context.startActivity(Intent.createChooser(email, "è¯·é€‰æ‹©é‚®ä»¶å‘é€è½¯ä»¶"));  
     }
 }

@@ -67,8 +67,6 @@ public class MainActivity extends Activity implements IXListViewListener {
 		super.onCreate(savedInstanceState);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		// set the content view
-		
 		setContentView(R.layout.main);
 		
 		getNews();
@@ -486,19 +484,19 @@ public class MainActivity extends Activity implements IXListViewListener {
 		RelateItem item4 = new RelateItem();
 		RelateItem item5 = new RelateItem();
 	
-		item1.setName("•’•°•§• •Û•∑•„•Î•ﬁ•¨•∏•Û");
+		item1.setName("„Éï„Ç°„Ç§„Éä„É≥„Ç∑„É£„É´„Éû„Ç¨„Ç∏„É≥");
 		item1.setNumber(1);
 		item1.setUrl("http://www.f-mag.jp/");
-		item2.setName("•ﬁ•Õ•Ì•∞");
+		item2.setName("„Éû„Éç„É≠„Ç∞");
 		item2.setNumber(2);
 		item2.setUrl("http://moneylog.jp/");
-		item3.setName("•ﬁ•Õ©`•ﬁ•Õ•∏•·•Û•»ó ∂®");
+		item3.setName("„Éû„Éç„Éº„Éû„Éç„Ç∏„É°„É≥„ÉàÊ§úÂÆö");
 		item3.setNumber(3);
 		item3.setUrl("http://www.moneymanagement.jp/");
 		item4.setName("accum");
 		item4.setNumber(4);
 		item4.setUrl("http://accum.jp/");
-		item5.setName("•ª•ﬂ•π•ø•§•Î");
+		item5.setName("„Çª„Éü„Çπ„Çø„Ç§„É´");
 		item5.setNumber(5);
 		item5.setUrl("http://semistyle.jp/");
 		

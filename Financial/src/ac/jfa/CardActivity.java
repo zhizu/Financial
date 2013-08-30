@@ -32,9 +32,9 @@ public class CardActivity extends Activity{
 		name = (TextView)findViewById(R.id.name);
 		name_1 = (TextView)findViewById(R.id.name_1);
 		
-		number.setText("ÊÜÖvÉúNo£º" + user.getKo_no());
+		number.setText("å—è¬›ç”ŸNoï¼š" + user.getKo_no());
 		name.setText(user.getKo_name2());
-		name_1.setText(user.getKo_name1() + " ˜”");
+		name_1.setText(user.getKo_name1() + " æ§˜");
 		
 		imageButton = (ImageButton)findViewById(R.id.img_search);
 		imageButton.setOnClickListener(new OnClickListener() {

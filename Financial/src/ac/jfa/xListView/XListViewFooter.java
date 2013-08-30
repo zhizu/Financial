@@ -37,7 +37,7 @@ public class XListViewFooter extends LinearLayout {
 		mHintView.setVisibility(View.INVISIBLE);
 		if (state == STATE_READY) {
 			mHintView.setVisibility(View.VISIBLE);
-			mHintView.setText("¥ê¥ê©`¥¹¤·¤Æ¸üĞÂ...");
+			mHintView.setText("ãƒªãƒªãƒ¼ã‚¹ã—ã¦æ›´æ–°...");
 		} else if (state == STATE_LOADING) {
 			mProgressBar.setVisibility(View.VISIBLE);
 		} else {

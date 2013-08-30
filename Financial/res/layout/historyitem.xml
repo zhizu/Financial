@@ -20,7 +20,7 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/nameText"
+                android:id="@+id/tani"
                 android:layout_width="80dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="7dp"
@@ -31,7 +31,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/logout_btn"
+                android:id="@+id/title"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -41,6 +41,7 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
             <ImageView 
+                android:id="@+id/imageView"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/banch_1"
@@ -49,7 +50,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/content_title"
+            android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
@@ -58,7 +59,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/content_title"
+            android:id="@+id/locate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
@@ -74,6 +75,7 @@
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/map"
                 android:layout_width="130dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="7dp"
@@ -84,6 +86,7 @@
                 android:textSize="14sp" />
 
             <Button
+                android:id="@+id/keiro"
                 android:layout_width="130dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="20dp"

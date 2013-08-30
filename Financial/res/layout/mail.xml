@@ -64,7 +64,6 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="10dp"
-        android:text="sadfasdfasdfsadcsdacsdafsadwcd"
         android:textColor="#000"
         android:textSize="18sp" />
 

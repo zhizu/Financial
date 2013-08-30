@@ -62,7 +62,7 @@ public class MailActivity extends Activity {
 											String status = jsonObject
 													.getString("status");
 											if (status.equals("success")) {
-												Toast.makeText(MailActivity.this, "��������", Toast.LENGTH_SHORT).show();
+												Toast.makeText(MailActivity.this, "送信完了", Toast.LENGTH_SHORT).show();
 											}else{
 												Toast.makeText(MailActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
 											}
@@ -75,7 +75,11 @@ public class MailActivity extends Activity {
 									}
 
 								});
+					}else{
+						Toast.makeText(MailActivity.this, "内容を入力してください！", Toast.LENGTH_SHORT).show();
 					}
+				}else{
+					Toast.makeText(MailActivity.this, "メールアドレスを入力してください！", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

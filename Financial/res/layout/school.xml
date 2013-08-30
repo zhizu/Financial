@@ -20,7 +20,7 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/nameText"
+                android:id="@+id/name_btn"
                 android:layout_width="160dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="7dp"
@@ -31,7 +31,7 @@
                 android:textSize="14sp" />
 
             <Button
-                android:id="@+id/logout_btn"
+                android:id="@+id/kougi_btn"
                 android:layout_width="160dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="20dp"
@@ -52,6 +52,7 @@
             android:textSize="14sp" />
 
         <View
+            android:id="@+id/line"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="10dp"
@@ -60,7 +61,7 @@
             android:width="1dp" />
 
         <TextView
-            android:id="@+id/content_title8"
+            android:id="@+id/content_title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
@@ -78,7 +79,7 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/content_title1"
+            android:id="@+id/content_title2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
@@ -87,7 +88,7 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/content_title2"
+            android:id="@+id/kaijyo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
@@ -96,7 +97,7 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/content_title"
+            android:id="@+id/content_title3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -105,15 +106,16 @@
             android:text="東京・御茶ノ水・ソラシティ カンファレンスセンター"
             android:textSize="15sp" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal" >
+            android:layout_marginBottom="5dp" >
 
             <Button
+                android:id="@+id/map_btn"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
                 android:layout_marginLeft="7dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/btn_3"
@@ -123,6 +125,8 @@
 
             <Button
                 android:id="@+id/keiroButton"
+                android:layout_alignBaseline="@id/map_btn"
+                android:layout_toRightOf="@id/map_btn"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="20dp"
@@ -133,15 +137,17 @@
                 android:textSize="14sp" />
 
             <Button
+                android:id="@+id/mousi_btn"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="7dp"
                 android:background="@drawable/btn_6"
                 android:text="お申し込み"
                 android:textColor="#ffffff"
                 android:textSize="14sp" />
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

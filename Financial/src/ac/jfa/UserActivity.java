@@ -149,12 +149,12 @@ public class UserActivity extends Activity {
 		pointText = (TextView) findViewById(R.id.pointText);
 		point = (ImageView) findViewById(R.id.point);
 
-		nameText.setText(userItem.getKo_name1() + " ˜”");
+		nameText.setText(userItem.getKo_name1() + " æ§˜");
 		DecimalFormat df = new DecimalFormat("##,###,###");
 		monText.setText(df.format(Integer.parseInt(userItem.getKo_point()))
 				+ "pt(" + df.format(Integer.parseInt(userItem.getKo_point()))
 				+ ")");
-		pointText.setText("¬FÔÚ" + userItem.getKo_tani() + "…gÎ»È¡µÃ");
+		pointText.setText("ç¾åœ¨" + userItem.getKo_tani() + "å˜ä½å–å¾—");
 		int tani = Integer.parseInt(userItem.getKo_tani());
 		if (tani > 0 && tani < 23) {
 			point.setImageResource(R.drawable.column_status_1);
@@ -200,6 +200,8 @@ public class UserActivity extends Activity {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent();
 				intent.setClass(UserActivity.this, HistoryActivity.class);
+				intent.putExtra("sid", userItem.getSid());
+				intent.putExtra("dl_sid", userItem.getDl_sid());
 				UserActivity.this.startActivity(intent);
 				overridePendingTransition(R.anim.in_from_right, R.anim.out);
 			}

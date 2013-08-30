@@ -20,13 +20,13 @@ public class PassActivity extends Activity implements OnClickListener{
 
 	private ImageButton imageButton = null;
 	private StringBuffer sb = new StringBuffer();
-	private String pass_1;//Éè¶¨ÃÜÂëÊ±µÚÒ»´ÎÊäÈëµÄÃÜÂë
+	private String pass_1;//è®¾å®šå¯†ç æ—¶ç¬¬ä¸€æ¬¡è¾“å…¥çš„å¯†ç 
 	private Button one,two,three,four,five,six,seven,eight,nine,zero,delete;
-	private int i = 0;//ÃÜÂëµÄ³¤¶È
-	private int flag = 0;//ÅĞ¶ÏÊÇ·ñÖØ¸´ÊäÈëÃÜÂë½øĞĞÑéÖ¤
+	private int i = 0;//å¯†ç çš„é•¿åº¦
+	private int flag = 0;//åˆ¤æ–­æ˜¯å¦é‡å¤è¾“å…¥å¯†ç è¿›è¡ŒéªŒè¯
 	private ImageView view_1,view_2,view_3,view_4 = null;
-	private TextView textView = null;//¿ØÖÆ±êÌâ
-	private String from;//ÅĞ¶ÏÊÇ´ÓÄÄ¸öActivityÌø×ª¹ıÀ´µÄ
+	private TextView textView = null;//æ§åˆ¶æ ‡é¢˜
+	private String from;//åˆ¤æ–­æ˜¯ä»å“ªä¸ªActivityè·³è½¬è¿‡æ¥çš„
 	private String password2;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +39,9 @@ public class PassActivity extends Activity implements OnClickListener{
 		Intent intent = getIntent();
 		from = intent.getStringExtra("from");
 		if(from.equals("set")){
-			textView.setText("¥Ñ¥¹¥ï©`¥É");
+			textView.setText("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰");
 		}else if(from.equals("init")){
-			textView.setText("¥Ñ¥¹¥ï©`¥É");
+			textView.setText("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰");
 			password2 = intent.getStringExtra("pass");
 		}
 		
@@ -172,7 +172,7 @@ public class PassActivity extends Activity implements OnClickListener{
 					view_2.setVisibility(View.GONE);
 					view_3.setVisibility(View.GONE);
 					view_4.setVisibility(View.GONE);
-					Toast.makeText(PassActivity.this, "¥Ñ¥¹¥³©`¥É¤¬égß`¤¤¤Ç¤·¤¿¡£ÔÙ¶ÈÈëÁ¦¤·¤Æ¤¯¤À¤µ¤¤¡£", Toast.LENGTH_SHORT).show();
+					Toast.makeText(PassActivity.this, "ãƒ‘ã‚¹ã‚³ãƒ¼ãƒ‰ãŒé–“é•ã„ã§ã—ãŸã€‚å†åº¦å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚", Toast.LENGTH_SHORT).show();
 				}
 			}else{
 				if(flag == 0){
@@ -180,7 +180,7 @@ public class PassActivity extends Activity implements OnClickListener{
 					flag = 1;
 					pass_1 = sb.toString();
 					sb.delete(0,sb.length());
-					textView.setText("ÔÙ¶ÈÈëÁ¦¤·¤Æ¤¯¤À¤µ¤¤");
+					textView.setText("å†åº¦å…¥åŠ›ã—ã¦ãã ã•ã„");
 					view_1.setVisibility(View.GONE);
 					view_2.setVisibility(View.GONE);
 					view_3.setVisibility(View.GONE);
@@ -195,12 +195,12 @@ public class PassActivity extends Activity implements OnClickListener{
 						i = 0;
 						flag = 0;
 						sb.delete(0,sb.length());
-						textView.setText("¥Ñ©`¥¹¥ï©`¥É");
+						textView.setText("ãƒ‘ãƒ¼ã‚¹ãƒ¯ãƒ¼ãƒ‰");
 						view_1.setVisibility(View.GONE);
 						view_2.setVisibility(View.GONE);
 						view_3.setVisibility(View.GONE);
 						view_4.setVisibility(View.GONE);
-						Toast.makeText(PassActivity.this, "¥Ñ¥¹¥³©`¥É¤¬Ò»ÖÂ¤·¤Ş¤»¤ó¤Ç¤·¤¿¡£ÔÙ¶ÈÔO¶¨¤·¤Æ¤¯¤À¤µ¤¤¡£", Toast.LENGTH_SHORT).show();
+						Toast.makeText(PassActivity.this, "ãƒ‘ã‚¹ã‚³ãƒ¼ãƒ‰ãŒä¸€è‡´ã—ã¾ã›ã‚“ã§ã—ãŸã€‚å†åº¦è¨­å®šã—ã¦ãã ã•ã„ã€‚", Toast.LENGTH_SHORT).show();
 					}
 				}
 			}

@@ -81,13 +81,13 @@ public class LoginActivity extends Activity {
 				if (login_user_edit.getText().toString().trim().equals("")
 						|| login_passwd_edit.getText().toString().trim()
 								.equals("")) {
-					Toast.makeText(LoginActivity.this, "¥á©`¥ë¤È¥Ñ¥¹¥ï©`¥É¤òÈ«²¿ÈëÁ¦¤·¤Æ¤¯¤À¤µ¤¤£¡",
+					Toast.makeText(LoginActivity.this, "ãƒ¡ãƒ¼ãƒ«ã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¨éƒ¨å…¥åŠ›ã—ã¦ãã ã•ã„ï¼",
 							Toast.LENGTH_SHORT).show();
 				} else {
 					String format = "^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?";
 					if (!login_user_edit.getText().toString().trim()
 							.matches(format)) {
-						Toast.makeText(LoginActivity.this, "Õı´_¤Ê¥á©`¥ë¤òÈëÁ¦¤·¤Æ¤¯¤À¤µ¤¤£¡",
+						Toast.makeText(LoginActivity.this, "æ­£ç¢ºãªãƒ¡ãƒ¼ãƒ«ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼",
 								Toast.LENGTH_SHORT).show();
 					} else {
 						helper = new DBHelper(LoginActivity.this, "inform");

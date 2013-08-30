@@ -76,7 +76,7 @@ public class AnimActivity extends ListActivity {
 				// TODO Auto-generated method stub
 				// Uri uri =
 				// Uri.parse("http://iphone.moneylog.jp/school_jukousei.mp4");
-				// //调用系统自带的播放器
+				// //璋冪敤绯荤粺鑷甫鐨勬挱鏀惧櫒
 				// Intent intent = new Intent(Intent.ACTION_VIEW);
 				// intent.setDataAndType(uri, "video/mp4");
 				// startActivity(intent);

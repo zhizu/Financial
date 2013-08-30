@@ -37,8 +37,8 @@ public class SettingFacebookActivity extends Activity {
 			// restore session if one exists
 	        SessionStore.restore(mFacebook, this);
 	        
-	        SessionEvents.addAuthListener(null);//¼àÌıµÇÈëºÍµÇ³ö
-	        SessionEvents.addLogoutListener(null);//¼àÌıµÇÈëºÍµÇ³ö
+	        SessionEvents.addAuthListener(null);//ç›‘å¬ç™»å…¥å’Œç™»å‡º
+	        SessionEvents.addLogoutListener(null);//ç›‘å¬ç™»å…¥å’Œç™»å‡º
 	        
 	        mFacebook.authorize(this, PERMISSIONS, 0, new DialogListener() {
 				

@@ -29,7 +29,7 @@ public class ReadItemActivity extends Activity{
 			title.setText(item.getTitle());
 			content.setText(item.getMessage());
 		}else{
-			title.setText("„Ó»­é‡ÓE¤Ë¤Ä¤¤¤Æ");
+			title.setText("å‹•ç”»é–²è¦§ã«ã¤ã„ã¦");
 			content.setText(R.string.content);
 		}
 		

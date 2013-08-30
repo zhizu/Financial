@@ -40,12 +40,14 @@ public class KouzaActivity extends Activity {
 				Intent intent = new Intent();
 				if(from.equals("main")){
 					intent.setClass(KouzaActivity.this, MainActivity.class);
+					startActivity(intent);
 				}else if(from.equals("notice")){
 					intent.setClass(KouzaActivity.this, NoticeActivity.class);
+					startActivity(intent);
 				}else if(from.equals("video")){
 					
 				}
-				startActivity(intent);
+				
 				finish();
 				overridePendingTransition(0, R.anim.out_to_right);
 			}
@@ -57,6 +59,11 @@ public class KouzaActivity extends Activity {
 		settings.setUseWideViewPort(true);
 		settings.setLoadWithOverviewMode(true);
 		settings.setJavaScriptEnabled(true);
+		settings.setSupportZoom(true);
+		settings.setDomStorageEnabled(true);
+		settings.setAllowFileAccess(true);
+		settings.setPluginsEnabled(true);
+		settings.setBuiltInZoomControls(true); 
 		webView.loadUrl(Url);
 		webView.setWebViewClient(new WebViewClient() {
 
